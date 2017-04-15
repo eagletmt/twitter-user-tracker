@@ -1,11 +1,11 @@
 # Maintainer: Kohei Suzuki <eagletmt@gmail.com>
 pkgname=twitter-user-tracker
-pkgver=0.1.0
+pkgver=0.1.1
 pkgrel=1
 arch=('i686' 'x86_64')
 url='https://github.com/eagletmt/twitter-user-tracker'
 license=('MIT')
-depends=('openssl')
+depends=('gcc-libs')
 makedepends=('cargo')
 source=("https://github.com/eagletmt/$pkgname/archive/v$pkgver.tar.gz")
 
@@ -19,4 +19,4 @@ package() {
   install -m755 target/release/$pkgname "$pkgdir/usr/bin/"
 }
 
-sha512sums=('71c03eff81fc086ae5311419c05a1ad3e7eb08bbd91625862f99557d3912e5ac53c87851fc42759eaf7564c5f5a7f3b387e5da54752480919ccc082e963e0568')
+sha512sums=('245ac6df594b7a7bfb4cb09f0bf6abc02f7a8412c28e39e6e8dfe84ae62ac419399f7105ffc1a9c6f05fac9a21beae12eda330f4ceaff85c214b102eef32b607')
