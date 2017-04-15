@@ -1,7 +1,7 @@
 extern crate base64;
 extern crate env_logger;
 extern crate hyper;
-extern crate hyper_native_tls;
+extern crate hyper_rustls;
 extern crate postgres;
 extern crate serde_json;
 
@@ -33,7 +33,7 @@ fn main() {
         std::env::var("TWITTER_CONSUMER_SECRET").expect("Set $TWITTER_CONSUMER_SECRET");
     let postgres_url = std::env::var("POSTGRES_URL").expect("Set $POSTGRES_URL");
 
-    let tls = hyper_native_tls::NativeTlsClient::new().unwrap();
+    let tls = hyper_rustls::TlsClient::new();
     let client = hyper::Client::with_connector(hyper::net::HttpsConnector::new(tls));
     let response = client
         .post("https://api.twitter.com/oauth2/token")
